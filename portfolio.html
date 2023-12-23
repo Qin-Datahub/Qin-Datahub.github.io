@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qin Yang - My Portfolio</title>
+        <link rel="stylesheet" href="css/portfolio.css"> 
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">Qin</div>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html" style="font-weight: bold;">Portfolio</a></li>
+                    <li class="contact"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="portfolio">
+                <div class="title">
+                    <div>
+                        <div class="line"></div>
+                        <h2>My portfolio</h2>
+                    </div>
+                    <div>
+                        <p>Embark on this journey with me and experience the transformative power of data visualization, predictive analysis, and MLOps in action as we navigate the intricate world of data together!</p>
+                    </div>
+                </div>
+                <div class="labels">
+                    <button class="active" id="data-visualization">Data Visualization</button>
+                    <button class="non-active" id="predictive-analysis">Predictive Analysis</button>
+                    <button class="non-active" id="mlops">MLOps</button>
+                </div>
+                <div class="visualizations" id="section1">
+                    <div style="flex-basis: 60%;" class="ease-in"><img src="DV-images/dashboard-1.png"></div>
+                    <div style="flex-basis: 28%; height: 24vw;" class="ease-in">
+                        <img src="DV-images/pie-chart-1.png">
+                        <br>
+                        <img src="DV-images/map-1.png">
+                    </div>
+                    <div style="flex-basis: 44%; height: 18vw" class="ease-in"><img src="DV-images/3d-graph-1.png"></div>
+                    <div style="flex-basis: 44%;" class="ease-in"><img src="DV-images/line-plot-1.png"></div>
+                    <div style="flex-basis: 100%;background-color: #2424c4;" class="ease-in"><img src="DV-images/dashboard-2.png"></div>
+                    <div style="flex-basis: 50%;" class="ease-in"><img src="DV-images/line-plot-2.png"></div>
+                    <div style="flex-basis: 38%; height: 19vw" class="ease-in"><img src="DV-images/bar-chart-1.png"></div>
+                </div>
+                <div class="predictive-analysis" id="section2">
+                    <div>
+                        <h3>Unlocking Business Growth: Harness ML to Predict Customer Lifetime Value</h3>
+                        <p>Machine Learning (ML) plays a vital role in understanding and predicting CLV with greater accuracy and precision. The complexity and vastness of customer data make it challenging to extract meaningful insights manually. However, ML algorithms can analyze large datasets, identify patterns, and make data-driven predictions, providing businesses with valuable intelligence regarding CLV.</p>
+                        <p><span style="font-weight: bold;">Key words:</span> Customer Lifetime Value (CLV), XGBoost, RFM, Classification & Regression</p>
+                        <a href="customer-lifetime-value-prediction.html">Read more</a>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>Revolutionizing Information Retrieval: Building a Customized Document QA Chatbot with Langchain</h3>
+                        <p>In this project, I will walk you through the process of building a question answering chatbot using customized data sources with ConversationalRetrievalQA chain which is built on RetrievalQAChain to provide a chat  history component. It first combines the chat history (either explicitly passed in or retrieved from the provided memory) and the question into a standalone question, then looks up relevant documents from the retriever, and finally passes those documents and the question to a question answering chain to return a response. </p>
+                        <p><span style="font-weight: bold;">Key words:</span> LangChain, LLM, Chatbot, Vector DB, FAISS</p>
+                        <a href="chatbot.html">Read more</a>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>Transform User Experiences: Unleash the Power of AI in Product/Content Search</h3>
+                        <p>In today's data-driven world, efficient information retrieval and delivering a seamless user experience are critical for businesses and applications. To address this, the integration of Convolutional Neural Networks (CNNs) and Language Models (LLMs) has emerged as a powerful approach for similarity search. By combining the visual understanding capabilities of CNNs with the semantic comprehension of LLMs, we can greatly enhance the retrieval of relevant information and provide users with a more personalized and engaging experience.</p>
+                        <p><span style="font-weight: bold;">Key words:</span> User Experience, LLM, CNN, Information Retrieval</p>
+                        <a href="transform-user-experience.html">Read more</a>
+                    </div>
+                    <br>
+                    <div>
+                        <h3>Credit Card Fraud Detection: A Machine Learning Approach</h3>
+                        <p>Credit card fraud is a serious concern for financial institutions and consumers alike. With the increasing use of digital payments, the instances of fraudulent transactions have also risen. It's imperative to have a robust fraud detection system in place to prevent financial losses and protect consumers' sensitive information. Machine learning algorithms have proven to be highly effective in detecting credit card fraud, thanks to their ability to analyze large datasets, identify patterns, and adapt to changing patterns of behavior. </p>
+                        <p><span style="font-weight: bold;">Key words:</span> Fraud Detection, Random Forest, XGBoost</p>
+                        <a href="credit-card-fraud-detection.html">Read more</a>
+                    </div>
+                </div>
+                <div class="mlops" id="section3"></div>
+            </section>
+            <section class="subscribe">
+                <h2>Get in touch</h2>
+                <p>I would love to hear from you! Whether you have a question, a collaboration opportunity, or just want to say hello, don't hesitate to get in touch. </p>
+                <p>Email me: <span style="font-weight: bold;text-decoration: underline;">qin9611@gmail.com</span></p>
+                <p>Call me: <span style="font-weight: bold;text-decoration: underline;">+1 (201) 565-5998</span></p>
+                <div class="social-media-links">
+                    <a href="https://www.linkedin.com/in/qin-yang-a0a16521b/"><img src="images/icons8-linkedin---in-logo-used-for-professional-networking,-100.png"></a>
+                    <a href="https://github.com/Qin-Datahub/"><img src="images/icons8-github-100.png"></a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <br>
+            <p>&copy; Created by Qin Yang. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

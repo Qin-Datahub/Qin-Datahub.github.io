@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Qin Yang - My Portfolio</title>
+        <link rel="stylesheet" href="css/article-details.css"> 
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">Qin</div>
+                <ul class="nav-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html" style="font-weight: bold;">Portfolio</a></li>
+                    <li class="contact"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="article-content">
+                <h1>Revolutionizing Information Retrieval: Building a Customized Document QA Chatbot with Langchain</h1>
+                <div class="publish-date">October 2023 / <span style="color: #2424c4;">Tutorial</span></div>
+                <p>In this project, I will walk you through the process of building a question answering chatbot using customized data sources with ConversationalRetrievalQA chain which is built on RetrievalQAChain to provide a chat history component. It first combines the chat history (either explicitly passed in or retrieved from the provided memory) and the question into a standalone question, then looks up relevant documents from the retriever, and finally passes those documents and the question to a question answering chain to return a response.</p>
+                <div class="main-content">
+                    <div class="table-of-content">
+                        <h2>Table of Content</h2>
+                        <ul>
+                            <li><a href="#introduction">Introduction of LangChain</a></li>
+                            <li><a href="#qa">QA and Chat over Documents with LangChain</a></li>
+                            <li><a href="#python-example">Example: A Customized Document QA Chatbot with LangChain using Python</a></li>
+                            <li><a href="#demo-with-streamlit">Demo with Streamlit</a></li>
+                            <li><a href="#conclusion">Conclusion</a></li>
+                        </ul>
+                    </div>
+                    <h2 id="introduction">Introduction of LangChain</h2>
+                    <p><a href="https://python.langchain.com/docs/get_started/introduction.html">LangChain</a> is a framework for developing applications powered by Large Language Models (LLMs). It enables applications that are data-aware (connect a language model to other sources of data) and agentic (allow language model to interact with its environment).</p>
+                    <p>LangChain provides standard, extendable interfaces and external integrations for the following modules:</p>
+                    <ul>
+                        <li>Model I/O: Interface with language models</li>
+                        <li>Data Connection: Interface with application-specific data</li>
+                        <li>Chains: Construct sequences of calls</li>
+                        <li>Agents: Let chains choose which tools to use given high-level directives</li>
+                        <li>Memory: Persist application state between runs of a chain</li>
+                        <li>Callbacks: Log and stream intermediate steps of any chain</li>
+                    </ul>
+                    <p>The common use cases of LangChain include but not limited to <span style="font-weight: bold;">chatbots</span>, <span style="font-weight: bold;">question answering</span> using sources, and <span style="font-weight: bold;">structured data analyzing</span> (e.g., SQL, Pandas, and CSV).</p>
+                    <p>In this project, I will walk you through the process of building a question answering chatbot using customized data sources with <a href="https://python.langchain.com/docs/use_cases/question_answering/">ConversationalRetrievalQA</a> chain which is built on <a href="https://python.langchain.com/docs/use_cases/question_answering/">RetrievalQAChain</a> to provide a chat  history component. It first combines the chat history (either explicitly passed in or retrieved from the provided memory) and the question into a standalone question, then looks up relevant documents from the retriever, and finally passes those documents and the question to a question answering chain to return a response. </p>
+                    <p>But before diving into the specifics of how LangChain works, I’d like to provide a brief overview of the QA and Chat ecosystem within LangChain. This will help us better understand the context and high-level functionality of the platform. </p>
+
+                    <h2 id="qa">QA and Chat over Documents with LangChain</h2>
+                    <p>Question Answering (QA) and Chat over Documents are both subfields of Natural Language Processing (NLP) that focus on using ML and DL techniques to analyze and understand natural language text.</p>
+                    <p>QA involves identifying the answer to a question posted in natural language text, by extracting relevant information from a corpus of text. The answer can be a phrase, a sentence, a paragraph, or even a document. QA systems typically rely on techniques such as keyword extraction, named entity recognition, and machine learning algorithms to identify the answer.</p>
+                    <p>Chat over Document (CoD) takes QA a step further by engaging in a conversation with the user to clarify their question and provide more accurate answers. CoD systems use techniques such as dialogue management, natural language understanding, and machine learning to generate responses to user queries.</p>
+                    <p>LangChain supports Chat and QA on various data types including code, structured data, and unstructured data. Since we will be using a pdf file as the source data for our chatbot, I will review Chat and QA on unstructured data here. The general steps involved include:</p>
+                    <ul>
+                        <li>Splitting: Breaking documents into splits of specified size using <a href="https://python.langchain.com/docs/modules/data_connection/document_transformers/">text splitters</a></li>
+                        <li>Storage:  House and often embed the splits using <a href="https://python.langchain.com/docs/modules/data_connection/vectorstores/">vector stores</a></li>
+                        <li>Retrieval: Retrieve splits from storage (e.g., using similarity search method, SVM)</li>
+                        <li>Output: Use LLM to produce an answer using a prompt that includes the question and the retrieved splits</li>
+                    </ul>
+                    <img src="ML-images/langchain.jpeg" style="width: 100%;">
+                    <p>The pipeline above can be wrapped with VectorstoreIndexCreator. For example:</p>
+                    <pre>
+                        <code>
+# Install dependencies
+pip install openai
+pip install chromadb
+export OPENAI_API_KEY = ""
+
+# Main script
+from langchain.document_loaders import WebBaseLoader
+from langchain.indexes import VectorstoreIndexCreator
+## document loader
+loader = WebBaseLoader("https://lilianweng.github.io/posts/2023-06-23-agent/")
+## index that wraps above steps
+index = VectorstoreIndexCreator().from_loaders([loader])
+## question-answering without source
+question = "What is Task Decomposition?"
+index.query(question)
+## or question-answering with source
+index.query_with_source(question)
+                        </code>
+                    </pre>
+                    <p>If you want lower level of abstraction, please refer to their official documentation <a href="https://python.langchain.com/docs/use_cases/question_answering/">here</a>! They have many more retrievers available (e.g., similarity search retriever, multi-query retriever, and max marginal relevance retriever). You can also customize the prompt by feeding a response template to RetrievalQA chain, return source document, etc.</p>
+                    <p>So far, we only completed the QA component with VectorstoreIndexCreator. However, to maintain a consistent chat history and provide answers in a more organized manner, we need to implement a memory buffer to track and store the conversation inputs and outputs. This will enable us to recall previous dialogue and respond accordingly, ensuring a more coherent and efficient chatbot interaction.</p>
+                    <p>And LangChain allows us to do so by using its ConversationalRetrievalChain. A simple template here:</p>
+                    <pre>
+                        <code>
+from langchain.memory import ConversationBufferMemory
+memory = ConversationBufferMemory(
+  memory_key="chat_history", 
+  return_messages=True)
+
+from langchain.chains import ConversationalRetrievalChain
+retriever = index.vectorstore.as_retriever()
+chat = ConversationalRetrievalChain.from_llm(
+    llm,
+    retriever=retriever,
+    memory=memory)
+                        </code>
+                    </pre>
+                    <p>More details will come soon in the example below!</p>
+                    <h2 id="python-example">Example: A Customized Document QA Chatbot with LangChain using Python</h2>
+                    <p>Now that we’ve covered the fundamental concepts of QA and Chat over documents using LangChain, let’s take a deeper dive and explore how to integrate these techniques to create a customized chatbot powered by OpenAI LLMs and build a user-friendly interface using Streamlit. This will enable us to create a seamless conversational experience for our users, leveraging the capabilities of LangChain and OpenAI’s advanced language models.</p>
+                    <p>The code is available in my GitHub <a href="https://github.com/Qin-Datahub/Document_QA_Chatbot/tree/main">repo</a>, feel free to clone and customize it by yourself.</p>
+                    <p>And since our topic today is about Document QA Chatbot, I will be ignoring the Streamlit-related code and focusing on the mechanism of building chatbot using LangChain.</p>
+                    <p>First, we import relevant dependencies:</p>
+                    <pre>
+                        <code>
+from transformers import GPT2TokenizerFast
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.embeddings import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
+from langchain.llms import OpenAI
+from langchain.chains import ConversationalRetrievalChain
+import textract
+                        </code>
+                    </pre>
+                    <p>Second, we convert the pdf file into txt file using textract:</p>
+                    <pre>
+                        <code>
+pdf_path = "example.pdf"
+doc = textract.process(pdf_path).decode("utf-8")
+                        </code>
+                    </pre>
+                    <p>Third, we split the doc into chunks using RecursiveCharacterTextSplitter. Here we use GPT2TokenizerFast to count the number of tokens.</p>
+                    <pre>
+                        <code>
+tokenizer = GPT2TokenizerFast.from_pretrained("gpt2")
+def count_tokens(text:str) -> int:
+    return len(tokenizer.encode(text))
+
+text_splitter = RecursiveCharacterTextSplitter(
+  chunk_size=524,
+  chunk_overlap=0,
+  length_function=count_tokens
+)
+
+chunks = text_splitter.create_documents([text])
+                        </code>
+                    </pre>
+                    <p>Fourth, we create embeddings using OpenAIEmbeddings() and store them into vector DB using FAISS. Facebook AI Similarity Search (FAISS) is a library that allows developers to quickly search for embeddings of multimedia documents that are similar to each other. It solves limitations of traditional query search engines that are optimized for hash-based searches, and provides more scalable similarity search functions.</p>
+                    <pre>
+                        <code>
+embeddings = OpenAIEmbeddings()
+db = FAISS.from_documents(chunks, embeddings)
+                        </code>
+                    </pre>
+                    <p>Ultimately, we initialize a ConversationalRetrieverChain using the vector DB we created earlier as retriever:</p>
+                    <pre>
+                        <code>
+qa = ConversationalRetrievalChain.from_llm(
+OpenAI(temperature=0.5),
+db.as_retriever()
+)
+                        </code>
+                    </pre>
+                    <p style="font-style: italic;"><strong>Note:</strong> We didn’t used a memory object to track chat history because we can do this implicitly.</p>
+                    <p>Now we can pass in chat history and ask questions:</p>
+                    <pre>
+                        <code>
+chat_history = []
+def generate_response(prompt):
+    result = qa({"question": user_input, "chat_history": chat_history})
+    chat_history.append(user_input, result["answer"])
+    return result["answer"]
+                        </code>
+                    </pre>
+                    <p>You can also easily return source documents from the ConversationalRetrieverChain using the line of code below:</p>
+                    <pre>
+                        <code>
+qa = ConversationalRetrievelChain.from_llm(
+  OpenAI(temperature=0.5),
+  db.as_retriever(),
+  return_source_documents=True
+)
+
+# get the source document later
+result["source_documents"][0]
+                        </code>
+                    </pre>
+                    <h2 id="demo-with-streamlit">Demo with Streamlit</h2>
+                    <p>https://documentchatbot.streamlit.app/</p>
+                    <h2 id="conclusion">Conclusion</h2>
+                    <p>In this blog post, we have explored the concept of LangChain, a powerful tool for building conversational AI models, and its applications in question answering and chatbot development. We have seen how to build a customized document QA chatbot using LangChain and Streamlit, and how to integrate it with OpenAI's large language models for improved performance. By leveraging the capabilities of LangChain and OpenAI's LLMs, we can create sophisticated conversational AI models that can answer questions and engage in meaningful conversations with users, all while providing a seamless and user-friendly experience. Whether you're a developer looking to build a chatbot for your business or a curious individual interested in exploring the possibilities of conversational AI, LangChain offers a powerful and accessible solution for building customized chatbots that can answer questions and chat over documents.</p>
+                </div>
+            </section>
+            <section class="subscribe">
+                <h2>Get in touch</h2>
+                <p>I would love to hear from you! Whether you have a question, a collaboration opportunity, or just want to say hello, don't hesitate to get in touch. </p>
+                <p>Email me: <span style="font-weight: bold;text-decoration: underline;">qin9611@gmail.com</span></p>
+                <p>Call me: <span style="font-weight: bold;text-decoration: underline;">+1 (201) 565-5998</span></p>
+                <div class="social-media-links">
+                    <a href="https://www.linkedin.com/in/qin-yang-a0a16521b/"><img src="images/icons8-linkedin---in-logo-used-for-professional-networking,-100.png"></a>
+                    <a href="https://github.com/Qin-Datahub/"><img src="images/icons8-github-100.png"></a>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <br>
+            <p>&copy; Created by Qin Yang. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

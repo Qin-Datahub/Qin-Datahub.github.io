@@ -412,7 +412,7 @@ footer {
     text-align: center;
 }
 
-.ease-in {
+/* .ease-in {
     opacity: 0;
     transition: opacity 1.2s ease-in;
-}
+} */

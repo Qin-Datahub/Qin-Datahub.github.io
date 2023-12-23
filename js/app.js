@@ -112,28 +112,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-var elements = document.getElementsByClassName('ease-in');
+// var elements = document.getElementsByClassName('ease-in');
 
-function isElementPartiallyVisible(element) {
-var rect = element.getBoundingClientRect();
-var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+// function isElementPartiallyVisible(element) {
+// var rect = element.getBoundingClientRect();
+// var windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-return rect.top < windowHeight && rect.bottom >= 0;
-}
+// return rect.top < windowHeight && rect.bottom >= 0;
+// }
 
-function changeOpacityOneByOne() {
-for (var i = 0; i < elements.length; i++) {
-    (function(index) {
-    setTimeout(function() {
-        if (isElementPartiallyVisible(elements[index])) {
-        elements[index].style.opacity = '1';
-        }
-    }, index * 0); // Adjust the duration between each element
-    })(i);
-}
-}
+// function changeOpacityOneByOne() {
+// for (var i = 0; i < elements.length; i++) {
+//     (function(index) {
+//     setTimeout(function() {
+//         if (isElementPartiallyVisible(elements[index])) {
+//         elements[index].style.opacity = '1';
+//         }
+//     }, index * 0); // Adjust the duration between each element
+//     })(i);
+// }
+// }
 
-window.addEventListener('scroll', function() {
-changeOpacityOneByOne();
-});
+// window.addEventListener('scroll', function() {
+// changeOpacityOneByOne();
+// });
 

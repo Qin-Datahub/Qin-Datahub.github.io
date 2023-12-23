@@ -1,0 +1,148 @@
+/* font style */
+body {
+    font-size: 1.2vw;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    margin-top: 2vw;
+    margin-bottom: 0vw;
+    font-family: sans-serif, 'Poppins';
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.7;
+}
+
+h1 {
+    font-size: 3vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+/* HEADER */
+/* 1. navigation bar */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid green; */
+}
+
+.logo, .nav-links {
+    flex: 1;
+    margin: 0.2vw;
+}
+
+.logo {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color:#2424C4;
+    
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 1vw;
+    padding: 0.5vw 1.5vw;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.contact {
+    background-color: #2424C4;
+    border-radius: 1.5vw;
+    border: 0.5px solid #2424C4;
+}
+
+.contact a {
+    color: white;
+    font-weight: bold;
+}
+
+.contact:hover {
+    background-color:white;
+    & a {    
+        text-decoration: none;
+        color: #2424C4;
+    }
+}
+
+/* MAIN SECTION */
+main {
+    margin-top: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main p {
+    width: 80%;
+    text-align: center;
+    margin: 0;
+}
+
+.contact-methods img {
+    width: 4vw;
+    height: 4vw;
+}
+
+.contact-methods {
+    margin-top: 4vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-methods > div {
+    width: 15vw;
+    color:#2424C4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+
+    & h4 {
+        margin-top: 0;
+    }
+
+    & p {
+        margin-top: -1vw;
+        text-decoration: underline;
+    }
+}
+
+.contact-methods a {
+    color: #2424C4;
+}
+
+.contact-methods >div:hover {
+    & img {
+        transition: transform 0.5s ease;
+        transform: translateY(-10px);
+    }
+}
+
+/* Footer */
+footer {
+    margin: 4vw 0vw 0vw 0vw;
+    text-align: center;
+}

@@ -1,0 +1,264 @@
+/* font style */
+body {
+    font-size: 1.2vw;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    margin-top: 2vw;
+    margin-bottom: 0vw;
+    font-family: sans-serif;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.7;
+}
+
+h1 {
+    font-size: 3vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+/* HEADER */
+
+/* 1. navigation bar */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo, .nav-links {
+    flex: 1;
+    margin: 0.2vw;
+    /* border: 1px solid green; */
+}
+
+.logo {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color:#2424C4;
+    
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 1vw;
+    padding: 0.5vw 1.5vw; 
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.contact {
+    background-color: #2424C4;
+    border-radius: 1.5vw;
+    border: 0.5px solid #2424C4;
+}
+
+.contact a {
+    color: white;
+    font-weight: bold;
+}
+
+.contact:hover {
+    background-color:white;
+    & a {    
+        text-decoration: none;
+        color: #2424C4;
+    }
+}
+
+/* MAIN SECTION */
+
+.line {
+    width: 10vw;
+    border: 0.2vw solid #2424C4;
+    margin-top: 8vw;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.title > div {
+    flex: 1;
+    /* border: 1px solid green; */
+}
+
+.title > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 8vw;
+} 
+
+.portfolio .labels {
+    margin-top: 2vw;
+}
+
+.labels button {
+    border-radius: 20px;
+    border: 0px;
+    padding: 1vw;
+    margin-right: 1vw;
+}
+
+.non-active {
+    color: gray;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.active {
+    color: white;
+    background-color: #2424C4;
+}
+    
+.portfolio .cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.portfolio .cards > div {
+    height: 20vw;
+    margin: 2vw;
+}
+
+.predictive-analysis > div:hover {
+    transition: transform 0.5s ease;
+    transform: scale(1.05);
+
+    & h3 {
+        color:#2424C4;
+    }
+    & a {
+        background-color: #2424C4;
+        color: white;
+    }
+}
+
+.visualizations {
+    margin-top: 4vw;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.visualizations > div {
+    /* height: 20vw; */
+    margin: 1vw;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.visualizations > div:hover {
+    transition: transform 0.5s ease;
+    transform: scale(1.05);
+}
+
+.visualizations img {
+    max-width: 100%;
+    object-fit: contain;
+    max-height: 100%;
+}
+
+.predictive-analysis {
+    margin-top: 4vw;
+}
+
+.predictive-analysis a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #2424c4;
+    border: 1px solid #2424c4;
+    width: 10vw;
+    text-align: center;
+    border-radius: 20px;
+}
+
+
+.predictive-analysis {
+    display: none;
+}
+
+/* .visualizations {
+    display: none;
+} */
+
+/* 5. suscribe */
+.subscribe {
+    background-color: #2424C4;
+    margin-top: 4vw;
+    margin-bottom: 0vw;
+    margin-left: -16vw;
+    margin-right: -16vw;
+    height: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.subscribe h2, .subscribe p {
+    margin-left: 16vw;
+    color: white;
+}
+
+.subscribe p  {
+    margin-top: -0.5vw;
+}
+
+.social-media-links {
+    display: flex;
+    flex-direction: row;
+    margin-left: 16vw;
+}
+
+.social-media-links img {
+    width: 2vw;
+    margin-right: 1vw;
+    transition: transform 0.3s ease;
+}
+
+.social-media-links img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Footer */
+footer {
+    margin: 0px;
+    text-align: center;
+}
+
+.ease-in {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}

@@ -1,6 +1,5 @@
 // my expertise - change the display when clicking the left and right arrow
 document.addEventListener('DOMContentLoaded', function() {
-
     var dataVisualization = document.getElementById("data-visualization");
     console.log(dataVisualization);
 

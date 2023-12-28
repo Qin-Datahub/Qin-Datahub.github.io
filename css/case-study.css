@@ -166,8 +166,11 @@ h2 {
     justify-content: center;
 }
 
-.details a:hover {
-    text-decoration: underline;
+.details:hover {
+    opacity: 60%;
+    & a {
+        text-decoration: underline;
+    }
 }
 
 /* 5. suscribe */

@@ -5,8 +5,7 @@ body {
     margin-right: 12vw;
     margin-top: 2vw;
     margin-bottom: 0vw;
-    /* font-family: 'Poppins', sans-serif; */
-    font-family: sans-serif, 'Poppins';
+    font-family: sans-serif;
     font-weight: 300;
     display: flex;
     flex-direction: column;
@@ -25,10 +24,6 @@ h2 {
     font-size: 2vw;
 }
 
-a {
-    color: #2424c4;
-}
-
 /* HEADER */
 
 /* 1. navigation bar */
@@ -37,19 +32,18 @@ a {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    /* border: 1px solid green; */
 }
 
 .logo, .nav-links {
     flex: 1;
     margin: 0.2vw;
-    /* border: 1px solid green; */
 }
 
 .logo {
     font-size: 2.5vw;
     font-weight: bold;
     color:#2424C4;
-    
 }
 
 .nav-links {
@@ -58,11 +52,13 @@ a {
     justify-content: end;
     list-style: none;
     padding: 0;
+    /* border: 1px solid green; */
 }
 
 .nav-links li {
-    margin: 1vw;
-    padding: 0.5vw 1.5vw; 
+    margin: 0vw;
+    width: 8vw;
+    padding: 0.5vw 1vw; 
 }
 
 .nav-links a {
@@ -75,21 +71,24 @@ a {
 }
 
 .contact {
-    background-color: #2424C4;
+    background-color:white;
     border-radius: 1.5vw;
-    border: 0.5px solid #2424C4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
 .contact a {
-    color: white;
+    color: #2424C4;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .contact:hover {
-    background-color:white;
+    background-color: #2424C4;
+    
     & a {    
         text-decoration: none;
-        color: #2424C4;
+        color: white;
     }
 }
 

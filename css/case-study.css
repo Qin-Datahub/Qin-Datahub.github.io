@@ -92,6 +92,84 @@ h2 {
     }
 }
 
+/* MAIN */
+.AI-ML {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.case {
+    width: 32vw;
+}
+
+.details {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: gray;
+    margin: 0.5vw;
+    height: 39vw;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+    
+    & a {
+        display: block;
+        font-size: 1.5vw;
+        margin-bottom: 0vw;
+        text-decoration: none;
+        font-weight: bold;
+        color: gray;
+        padding: 0vw 1vw;
+        margin-top: 1vw;
+        
+    }
+
+    & img {
+        width: 100%;
+        z-index: -1;
+    }
+}
+
+.company-name {
+    font-weight: bold;
+    margin: 0.5vw 0vw;
+    padding: 0vw 1vw;
+}
+
+.summary {
+    padding: 0vw 1vw;
+}
+
+.pub-date {
+    margin-top: -0.5vw;
+    padding: 0vw 1vw;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tag {
+    color: gray;
+    height: 2vw;
+    width: 9vw;
+    border: 0.5px solid gray;
+    margin-left: 0.5vw;
+    margin-top: 0.5vw;
+    z-index: 2;
+    border-radius: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.details a:hover {
+    text-decoration: underline;
+}
+
 /* 5. suscribe */
 .subscribe {
     background-color: #2424C4;
@@ -156,34 +234,6 @@ h2 {
     margin-top: 8vw;
 } 
 
-.details {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-
-    & a {
-        color: #2424c4;
-    }
-
-    & p {
-        padding: 0;
-        margin: 0;
-        color: gray;
-    }
-}
-
-.tag {
-    margin-top: 1vw;
-}
-
-.tag > div {
-    border: 1px solid gray;
-    text-align: center;
-    width: 14vw;
-    border-radius: 1vw;
-    color: gray;
-
-}
 
 /* Footer */
 footer {

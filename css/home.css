@@ -71,7 +71,7 @@ h2 {
 
 .contact {
     background-color:white;
-    border-radius: 1.5vw;
+    border-radius: 2vw;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -130,7 +130,7 @@ h2 {
 }
 
 .contact-me, .browse-portfolio {
-    height: 3.4vw;
+    height: 3vw;
     width: 12vw;
     display: flex;
     justify-content: center;
@@ -247,7 +247,7 @@ main {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     /* border: 0.5px dashed #2424c4; */
     text-align: center;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -295,7 +295,7 @@ main {
 .portfolio-cards > div {
     /* border: 1px solid #2424c4; */
     padding: 1vw;
-    border-radius: 20px;
+    border-radius:10px;
     margin-top: 2vw; 
 }
 
@@ -310,20 +310,20 @@ main {
 }
 
 .portfolio-cards > div:nth-child(1) > img {
-    border-radius: 20px;
+    border-radius: 10px;
     transform: rotate(-10deg); 
 }
 
 .floating-card {
     position: absolute;
     top: 70%;
-    left: 25%;
+    left: 24%;
     transform: translate(-50%, -50%);
-    width: 30vw;
+    width: 25vw;
     height: 14vw;
     background-color: white;
     padding: 2vw;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .portfolio-cards > div:nth-child(2) {
@@ -388,7 +388,7 @@ main {
     align-items: center;
     flex: 1;
     height: 39vw;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: white;
     /* background-color: rgb(238, 237, 237); */
     /* border: 1px solid #2424c4; */
@@ -397,7 +397,7 @@ main {
 }
 
 .r2-c1 {
-    border-radius: 0px 0px 20px 20px;
+    border-radius: 0px 0px 10px 10px;
     padding: 1vw 3vw;
 }
 
@@ -474,7 +474,7 @@ main {
 
 .self-intro img {
     width: 25%;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-right: 4vw;
     transition: transform 0.5s ease;
 }
@@ -557,7 +557,7 @@ hr {
     border: 1px solid #2424c4;
     padding: 0.3vw;
     width: 12vw;
-    border-radius: 1.2vw;
+    border-radius: 2vw;
     text-align: center;
     color: #2424c4;
 }

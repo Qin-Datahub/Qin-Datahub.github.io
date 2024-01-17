@@ -229,7 +229,7 @@ h2 {
 }
 
 .my-experience > div:nth-child(1) {
-    margin-top: -60vw;
+    margin-top: -85vw;
 }
 
 .my-experience > div:nth-child(2) {
@@ -239,8 +239,8 @@ h2 {
 
 .vertical-line-with-circle {
     position: relative;
-    height: 14vw;
-    top: 8vw;
+    height: 20vw;
+    top: 5vw;
 }
 
 .vertical-line-with-circle::before {

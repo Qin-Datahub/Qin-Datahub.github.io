@@ -165,7 +165,7 @@ h2 {
     top: 1vw;
 }
 
-a {
+.details a {
     position: absolute;
     top: 4vw;
 }

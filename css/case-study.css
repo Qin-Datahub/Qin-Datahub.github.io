@@ -174,7 +174,7 @@ a {
 .tag {
     color: gray;
     height: 2vw;
-    width: 9vw;
+    padding: 0vw 1vw;
     border: 0.5px solid gray;
     margin-left: 0.5vw;
     margin-top: 0.5vw;

@@ -107,9 +107,9 @@ h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     color: gray;
     margin: 0.5vw;
-    height: 39vw;
+    height: 40vw;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative;
     
     & a {
@@ -121,7 +121,6 @@ h2 {
         color: gray;
         padding: 0vw 1vw;
         margin-top: 1vw;
-        
     }
 
     & img {
@@ -130,14 +129,27 @@ h2 {
     }
 }
 
+.inner-container {
+    position: absolute;
+    top: 18vw;
+    left: 0vw;
+    width: 100%;
+    height: 24vw;
+    background-color: white;
+}
+
 .company-name {
     font-weight: bold;
     margin: 0.5vw 0vw;
     padding: 0vw 1vw;
+    position: absolute;
+    top: 10vw;
 }
 
 .summary {
     padding: 0vw 1vw;
+    position: absolute;
+    top: 12vw;
 }
 
 .pub-date {
@@ -149,7 +161,15 @@ h2 {
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: absolute;
+    top: 1vw;
 }
+
+a {
+    position: absolute;
+    top: 4vw;
+}
+
 
 .tag {
     color: gray;

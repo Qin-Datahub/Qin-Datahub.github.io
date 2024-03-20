@@ -124,10 +124,12 @@ h2 {
 }
 
 .labels button {
-    border-radius: 2vw;
+    border-radius: 20px;
     border: 0px;
-    padding: 0.6vw;
+    padding: 1vw 1.5vw;
     margin-right: 1vw;
+    font-size: 1vw;
+    font-family: "Lato", sans-serif;
 }
 
 .non-active {
@@ -190,7 +192,7 @@ h2 {
 
 .container {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 1vw;
     display: flex;
     flex-direction: column;
